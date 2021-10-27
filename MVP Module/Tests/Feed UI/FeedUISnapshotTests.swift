@@ -9,6 +9,8 @@ import FeedFeature
 class FeedUISnapshotTests: XCTestCase {
 	//  ***********************
 	//
+	//  [DO NOT DELETE THIS COMMENT]
+	//
 	//  Uncomment and run one test at a time
 	//  to validate the layout (including Dark Mode support).
 	//

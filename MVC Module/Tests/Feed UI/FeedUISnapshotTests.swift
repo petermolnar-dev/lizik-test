@@ -28,11 +28,10 @@ class FeedUISnapshotTests: XCTestCase {
 	// MARK: - Helpers
 
 	private func makeSUT() -> FeedViewController {
-		let loader = FeedLoaderStub(.success([]))
 		let bundle = Bundle(for: FeedViewController.self)
 		let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
 		let controller = storyboard.instantiateInitialViewController() as! FeedViewController
-		controller.refreshController?.feedLoader = loader
+		controller.refreshController?.feedLoader = AlwaysSucceedingFeedLoader()
 		controller.loadViewIfNeeded()
 		controller.tableView.showsVerticalScrollIndicator = false
 		controller.tableView.showsHorizontalScrollIndicator = false
@@ -44,15 +43,9 @@ class FeedUISnapshotTests: XCTestCase {
 	}
 }
 
-private class FeedLoaderStub: FeedLoader {
-	private let result: FeedLoader.Result
-
-	init(_ result: FeedLoader.Result) {
-		self.result = result
-	}
-
+private class AlwaysSucceedingFeedLoader: FeedLoader {
 	func load(completion: @escaping (FeedLoader.Result) -> Void) {
-		completion(result)
+		completion(.success([]))
 	}
 }
 

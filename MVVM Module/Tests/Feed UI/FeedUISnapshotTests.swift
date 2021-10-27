@@ -9,6 +9,8 @@ import FeedFeature
 class FeedUISnapshotTests: XCTestCase {
 	//  ***********************
 	//
+	//  [DO NOT DELETE THIS COMMENT]
+	//
 	//  Uncomment and run one test at a time
 	//  to validate the layout (including Dark Mode support).
 	//
@@ -35,11 +37,10 @@ class FeedUISnapshotTests: XCTestCase {
 	// MARK: - Helpers
 
 	private func makeSUT() -> FeedViewController {
-		let loader = FeedLoaderStub(.success([]))
 		let bundle = Bundle(for: FeedViewController.self)
 		let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
 		let controller = storyboard.instantiateInitialViewController() as! FeedViewController
-		controller.viewModel = FeedViewModel(feedLoader: loader)
+		controller.viewModel = FeedViewModel(feedLoader: AlwaysSucceedingFeedLoader())
 		controller.loadViewIfNeeded()
 		controller.tableView.showsVerticalScrollIndicator = false
 		controller.tableView.showsHorizontalScrollIndicator = false
@@ -51,15 +52,9 @@ class FeedUISnapshotTests: XCTestCase {
 	}
 }
 
-private class FeedLoaderStub: FeedLoader {
-	private let result: FeedLoader.Result
-
-	init(_ result: FeedLoader.Result) {
-		self.result = result
-	}
-
+private class AlwaysSucceedingFeedLoader: FeedLoader {
 	func load(completion: @escaping (FeedLoader.Result) -> Void) {
-		completion(result)
+		completion(.success([]))
 	}
 }
 
