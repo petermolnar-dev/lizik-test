@@ -40,11 +40,11 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 1) Fork the latest version of this repository. Here's <a href="https://guides.github.com/activities/forking" target="_blank">how forking works</a>.
 
-2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 12.5.
+2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 13.0.
 	
 	- Older Xcode versions are not supported.
 	
-	- Challenges submitted with branches other than `xcode12_5` will be rejected.
+	- Challenges submitted with branches other than `xcode13_0` will be rejected.
 
 	- Do not change the indentation in the project.
 
@@ -58,7 +58,7 @@ You can study and use the MVC solution as a guide to help you implement the same
 	
 	- The `Feed iOS App` is the Main iOS Application module for composing the MV\* solutions in a `UITabBarController` and running the iOS application. ***You won’t need to change anything in this module.***
 
-	- The `MVC Module` contains the finished MVC solution—use it as a guideline.
+	- The `MVC Module` contains the finished MVC solution—use it as a guideline. You shouldn't change anything in this module, only add the new supported language.
 	
 	- The `MVVM Module` contains the unfinished MVVM solution. You must implement the localized error message.
 	
@@ -88,9 +88,11 @@ You can study and use the MVC solution as a guide to help you implement the same
 	
 	- Uncomment and run one snapshot test at a time to validate the layout is pixel-perfect in Light and Dark Mode. 
 
+	- You shouldn't change any existing snapshot. They're there to validate your implementation. 
+
 	- ⚠️ Important: ***Different simulators may generate slightly different snapshots (even if they look the same!).*** So you must run the snapshot tests using the exact same simulator used to take the snapshots:
 
-		- iPhone 12 - iOS 14.5
+		- Use the 'iPhone 13 - iOS 15.0' simulator.
 
 	- All snapshot tests must pass before you submit the pull request.
 
@@ -102,7 +104,7 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 	- If it does, create a Pull Request from your branch to the main challenge repo's matching branch.
 
-		- For example, if you implemented the challenge using the `xcode12_5` branch, your PR should be from your fork's `xcode12_5` branch into the main repo's `xcode12_5` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
+		- For example, if you implemented the challenge using the `xcode13_0` branch, your PR should be from your fork's `xcode13_0` branch into the main repo's `xcode13_0` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
 
 	- The title of the Pull Request should be: **Your Name - UI Design Patterns Challenge**
 
