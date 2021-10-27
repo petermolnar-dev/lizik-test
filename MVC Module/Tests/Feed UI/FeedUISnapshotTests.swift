@@ -12,8 +12,8 @@ class FeedUISnapshotTests: XCTestCase {
 
 		sut.display(emptyFeed())
 
-		assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "EMPTY_FEED_light")
-		assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "EMPTY_FEED_dark")
+		assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "EMPTY_FEED_light")
+		assert(snapshot: sut.snapshot(for: .iPhone13(style: .dark)), named: "EMPTY_FEED_dark")
 	}
 
 	func test_feedWithError() {
@@ -21,8 +21,8 @@ class FeedUISnapshotTests: XCTestCase {
 
 		sut.display(errorMessage: "An error message")
 
-		assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_ERROR_light")
-		assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_ERROR_dark")
+		assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "FEED_WITH_ERROR_light")
+		assert(snapshot: sut.snapshot(for: .iPhone13(style: .dark)), named: "FEED_WITH_ERROR_dark")
 	}
 
 	// MARK: - Helpers
