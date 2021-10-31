@@ -40,11 +40,11 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 1) Fork the latest version of this repository. Here's <a href="https://guides.github.com/activities/forking" target="_blank">how forking works</a>.
 
-2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 13.0.
+2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 13.1.
 	
-	- Older Xcode versions are not supported.
+	- Other Xcode versions are not supported in this branch.
 	
-	- Challenges submitted with branches other than `xcode13_0` will be rejected.
+		- Challenges submitted with branches other than `xcode13_1` will be rejected.
 
 	- Do not change the indentation in the project.
 
@@ -86,13 +86,13 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 10) The MVVM and MVP modules contain commented-out snapshot tests at `MV\* Module/Tests/Feed UI/FeedUISnapshotTests.swift`.
 	
-	- Uncomment and run one snapshot test at a time to validate the layout is pixel-perfect in Light and Dark Mode. 
+	- Uncomment and run one snapshot test at a time to validate the layout is pixel-perfect in Light and Dark Mode.
 
 	- You shouldn't change any existing snapshot. They're there to validate your implementation. 
 
 	- ⚠️ Important: ***Different simulators may generate slightly different snapshots (even if they look the same!).*** So you must run the snapshot tests using the exact same simulator used to take the snapshots:
 
-		- Use the 'iPhone 13 - iOS 15.0' simulator.
+		- Use *precisely* the 'iPhone 13 - iOS 15.0' simulator.
 
 	- All snapshot tests must pass before you submit the pull request.
 
@@ -104,12 +104,12 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 	- If it does, create a Pull Request from your branch to the main challenge repo's matching branch.
 
-		- For example, if you implemented the challenge using the `xcode13_0` branch, your PR should be from your fork's `xcode13_0` branch into the main repo's `xcode13_0` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
+		- For example, if you implemented the challenge using the `xcode13_1` branch, your PR should be from your fork's `xcode13_1` branch into the main repo's `xcode13_1` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
 
 	- The title of the Pull Request should be: **Your Name - UI Design Patterns Challenge**
 
 
-12) We'll review your Pull Request and approve it or request any changes required with detailed feedback.
+12) As soon as you create a Pull Request, we automatically receive a notification. You just need to create it and wait while we review your Pull Request and approve it or request any changes required with detailed feedback.
 
 
 ## Guidelines
