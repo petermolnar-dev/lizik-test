@@ -46,6 +46,8 @@ You can study and use the MVC solution as a guide to help you implement the same
 	
 		- Challenges submitted with branches other than `xcode13_2_1` will be rejected.
 
+	- Do not change any project settings, including scheme settings.
+
 	- Do not change the indentation in the project.
 
 	- Do not rename the existing classes and files.
