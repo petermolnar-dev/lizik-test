@@ -5,7 +5,7 @@
 import UIKit
 import FeedFeature
 
-final class FeedRefreshViewController: NSObject {
+public final class FeedRefreshViewController: NSObject {
 	@IBOutlet private(set) public var view: UIRefreshControl?
 	@IBOutlet private(set) public var errorView: ErrorView?
 

@@ -5,7 +5,7 @@
 import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-	@IBOutlet var refreshController: FeedRefreshViewController?
+	@IBOutlet private(set) public var refreshController: FeedRefreshViewController?
 
 	var tableModel = [FeedImageCellController]() {
 		didSet { tableView.reloadData() }
