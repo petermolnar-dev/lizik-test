@@ -40,11 +40,11 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 1) Fork the latest version of this repository. Here's <a href="https://guides.github.com/activities/forking" target="_blank">how forking works</a>.
 
-2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 14.3.
+2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 14.3.1.
 	
 	- Other Xcode versions are not supported in this branch.
 	
-		- Challenges submitted with branches other than `xcode14_3` will be rejected.
+		- Challenges submitted with branches other than `xcode14_3_1` will be rejected.
 
 	- Do not change any project settings, including scheme settings.
 
@@ -110,7 +110,7 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 	- If it does, create a Pull Request from your branch to the main challenge repo's matching branch.
 
-		- For example, if you implemented the challenge using the `xcode14_3` branch, your PR should be from your fork's `xcode14_3` branch into the main repo's `xcode14_3` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
+		- For example, if you implemented the challenge using the `xcode14_3_1` branch, your PR should be from your fork's `xcode14_3_1` branch into the main repo's `xcode14_3_1` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
 
 	- The title of the Pull Request should be: Your Name - UI Design Patterns Challenge
 
