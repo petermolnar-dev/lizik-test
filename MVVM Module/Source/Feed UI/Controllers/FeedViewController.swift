@@ -5,6 +5,8 @@
 import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
+	private var onViewIsAppearing: (() -> Void)?
+
 	var viewModel: FeedViewModel? {
 		didSet { bind() }
 	}
@@ -16,7 +18,16 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
 	public override func viewDidLoad() {
 		super.viewDidLoad()
 
-		refresh()
+		onViewIsAppearing = { [weak self] in
+			self?.refresh()
+			self?.onViewIsAppearing = nil
+		}
+	}
+
+	public override func viewIsAppearing(_ animated: Bool) {
+		super.viewIsAppearing(animated)
+
+		onViewIsAppearing?()
 	}
 
 	@IBAction private func refresh() {

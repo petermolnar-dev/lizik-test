@@ -6,6 +6,16 @@ import UIKit
 import MVC
 
 extension FeedViewController {
+	func simulateAppearance() {
+		if !isViewLoaded {
+			loadViewIfNeeded()
+			prepareForFirstAppearance()
+		}
+
+		beginAppearanceTransition(true, animated: false)
+		endAppearanceTransition()
+	}
+
 	func simulateUserInitiatedFeedReload() {
 		refreshControl?.simulatePullToRefresh()
 	}
@@ -64,5 +74,36 @@ extension FeedViewController {
 
 	private var feedImagesSection: Int {
 		return 0
+	}
+
+	private func prepareForFirstAppearance() {
+		replaceRefreshControlWithSpyForiOS17Support()
+	}
+
+	private func replaceRefreshControlWithSpyForiOS17Support() {
+		let spyRefreshControl = UIRefreshControlSpy()
+
+		refreshControl?.allTargets.forEach { target in
+			refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
+				spyRefreshControl.addTarget(target, action: Selector(action), for: .valueChanged)
+			}
+		}
+
+		refreshControl = spyRefreshControl
+		refreshController?.view = spyRefreshControl
+	}
+}
+
+private class UIRefreshControlSpy: UIRefreshControl {
+	private var _isRefreshing = false
+
+	override var isRefreshing: Bool { _isRefreshing }
+
+	override func beginRefreshing() {
+		_isRefreshing = true
+	}
+
+	override func endRefreshing() {
+		_isRefreshing = false
 	}
 }

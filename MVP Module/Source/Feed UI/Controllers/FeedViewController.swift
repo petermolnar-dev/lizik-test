@@ -11,6 +11,8 @@ protocol FeedViewControllerDelegate {
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView {
 	var delegate: FeedViewControllerDelegate?
 
+	private var onViewIsAppearing: (() -> Void)?
+
 	private var tableModel = [FeedImageCellController]() {
 		didSet { tableView.reloadData() }
 	}
@@ -18,7 +20,16 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
 	public override func viewDidLoad() {
 		super.viewDidLoad()
 
-		refresh()
+		onViewIsAppearing = { [weak self] in
+			self?.refresh()
+			self?.onViewIsAppearing = nil
+		}
+	}
+
+	public override func viewIsAppearing(_ animated: Bool) {
+		super.viewIsAppearing(animated)
+
+		onViewIsAppearing?()
 	}
 
 	@IBAction private func refresh() {
