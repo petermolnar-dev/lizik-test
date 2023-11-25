@@ -21,6 +21,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: Fix Xcode 15 slowness issues
+      run: |
+       wget https://github.com/biscuitehh/yeetd/releases/download/1.0/yeetd-normal.pkg
+       sudo installer -pkg yeetd-normal.pkg -target /
+       yeetd &
+
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_15.0.1.app
             
