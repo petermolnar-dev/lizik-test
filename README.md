@@ -40,11 +40,11 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 1) Fork the latest version of this repository. Here's <a href="https://guides.github.com/activities/forking" target="_blank">how forking works</a>.
 
-2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 15.0.
+2) Open the `UIDesignPatternsChallenge.xcodeproj` project on Xcode 15.1.
 	
 	- Other Xcode versions are not supported in this branch.
 	
-		- Challenges submitted with branches other than `xcode15_0` will be rejected.
+		- Challenges submitted with branches other than `xcode15_1` will be rejected.
 
 	- Do not change any project settings, including scheme settings.
 
@@ -96,9 +96,11 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 	- ⚠️ Important: ***Different simulators may generate slightly different snapshots (even if they look the same!).*** So you must run the snapshot tests using the exact same simulator used to take the snapshots:
 
-		- Use *precisely* the 'iPhone 15 Pro - iOS 17.0' simulator.
+		- Use *precisely* the 'iPhone 15 Pro - iOS 17.2' simulator.
 		
 		- If the tests fail on a fresh clone of this repository using the precise simulator mentioned above, reset the simulator to remove any custom settings (Device > Erase All Content and Settings...)
+
+		- If after resetting the tests fail on a fresh clone of this repository, make sure your 'iPhone 15 Pro - iOS 17.2' simulator language is set to English to match the CI environment: `Simulator > Settings > General > Language & Region` - it should have ONLY English as a language. Remove any other languages."
 
 	- All snapshot tests must pass before you submit the pull request.
 
@@ -110,7 +112,7 @@ You can study and use the MVC solution as a guide to help you implement the same
 
 	- If it does, create a Pull Request from your branch to the main challenge repo's matching branch.
 
-		- For example, if you implemented the challenge using the `xcode15_0` branch, your PR should be from your fork's `xcode15_0` branch into the main repo's `xcode15_0` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
+		- For example, if you implemented the challenge using the `xcode15_1` branch, your PR should be from your fork's `xcode15_1` branch into the main repo's `xcode15_1` branch (DO NOT MIX Xcode versions or you'll have merge conflicts!).
 
 	- The title of the Pull Request should be: Your Name - UI Design Patterns Challenge
 
