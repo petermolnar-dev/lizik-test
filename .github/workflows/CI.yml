@@ -14,21 +14,15 @@ jobs:
     # The type of runner that the job will run on
     runs-on: macos-13
 
-    timeout-minutes: 10
+    timeout-minutes: 12
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-
-    - name: Fix Xcode 15 slowness issues
-      run: |
-       wget https://github.com/biscuitehh/yeetd/releases/download/1.0/yeetd-normal.pkg
-       sudo installer -pkg yeetd-normal.pkg -target /
-       yeetd &
+    - uses: actions/checkout@v4
 
     - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_15.0.1.app
+      run: sudo xcode-select -switch /Applications/Xcode_15.1.app
             
     - name: Build and Test
-      run: xcodebuild test -project UIDesignPatternsChallenge.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0.1" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES OTHER_SWIFT_FLAGS="-D ED_SKIP_SWIFT_FORMAT"
+      run: xcodebuild test -project UIDesignPatternsChallenge.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES OTHER_SWIFT_FLAGS="-D ED_SKIP_SWIFT_FORMAT"
