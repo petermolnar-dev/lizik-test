@@ -77,33 +77,33 @@ extension FeedViewController {
 	}
 
 	private func prepareForFirstAppearance() {
-		replaceRefreshControlWithSpyForiOS17Support()
+		replaceRefreshControlWithFakeForiOS17PlusSupport()
 	}
 
-	private func replaceRefreshControlWithSpyForiOS17Support() {
-		let spyRefreshControl = UIRefreshControlSpy()
+	private func replaceRefreshControlWithFakeForiOS17PlusSupport() {
+		let fakeRefreshControl = FakeUIRefreshControl()
 
 		refreshControl?.allTargets.forEach { target in
 			refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
-				spyRefreshControl.addTarget(target, action: Selector(action), for: .valueChanged)
+				fakeRefreshControl.addTarget(target, action: Selector(action), for: .valueChanged)
 			}
 		}
 
-		refreshControl = spyRefreshControl
-		refreshController?.view = spyRefreshControl
-	}
-}
-
-private class UIRefreshControlSpy: UIRefreshControl {
-	private var _isRefreshing = false
-
-	override var isRefreshing: Bool { _isRefreshing }
-
-	override func beginRefreshing() {
-		_isRefreshing = true
+		refreshControl = fakeRefreshControl
+		refreshController?.view = fakeRefreshControl
 	}
 
-	override func endRefreshing() {
-		_isRefreshing = false
+	private class FakeUIRefreshControl: UIRefreshControl {
+		private var _isRefreshing = false
+
+		override var isRefreshing: Bool { _isRefreshing }
+
+		override func beginRefreshing() {
+			_isRefreshing = true
+		}
+
+		override func endRefreshing() {
+			_isRefreshing = false
+		}
 	}
 }
