@@ -16,15 +16,15 @@ class FeedUISnapshotTests: XCTestCase {
 	//
 	//  ***********************
 
-//	func test_emptyFeed() {
-//		let sut = makeSUT()
-//
-//		sut.display(emptyFeed())
-//
-//		assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "EMPTY_FEED_light")
-//		assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "EMPTY_FEED_dark")
-//	}
-//
+	func test_emptyFeed() {
+		let sut = makeSUT()
+
+		sut.display(emptyFeed())
+
+		assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "EMPTY_FEED_light")
+		assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "EMPTY_FEED_dark")
+	}
+
 //	func test_feedWithError() {
 //		let sut = makeSUT()
 //
