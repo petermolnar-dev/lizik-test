@@ -25,14 +25,14 @@ class FeedUISnapshotTests: XCTestCase {
 		assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "EMPTY_FEED_dark")
 	}
 
-//	func test_feedWithError() {
-//		let sut = makeSUT()
-//
-//		sut.display(errorMessage: "An error message")
-//
-//		assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "FEED_WITH_ERROR_light")
-//		assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "FEED_WITH_ERROR_dark")
-//	}
+	func test_feedWithError() {
+		let sut = makeSUT()
+
+		sut.display(errorMessage: "An error message")
+
+		assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "FEED_WITH_ERROR_light")
+		assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "FEED_WITH_ERROR_dark")
+	}
 
 	// MARK: - Helpers
 
@@ -60,7 +60,7 @@ private class AlwaysSucceedingFeedLoader: FeedLoader {
 
 private extension FeedViewController {
 	func display(errorMessage: String) {
-		fatalError("Must be implemented - follow the MVC solution as a guide")
+		refreshController?.errorView.show(message: errorMessage)
 	}
 
 	func display(_ feed: [FeedImageCellController]) {
