@@ -5,7 +5,8 @@
 import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-	@IBOutlet var refreshController: FeedRefreshViewController!
+	@IBOutlet private(set) public weak var errorView: ErrorView!
+
 	private var onViewIsAppearing: (() -> Void)?
 
 	var viewModel: FeedViewModel? {
